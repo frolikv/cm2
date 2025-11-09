@@ -13,34 +13,32 @@ class CLI:
         parser.add_argument('--package-name', '-p',
                             type=str,
                             required=True,
-                            help="name of package"
+                            help="package name"
                             )
 
         parser.add_argument('--url', '-u',
                             type=str,
                             required=True,
-                            help="url of package"
+                            help="url address or file path"
                             )
 
-        parser.add_argument('--graph-name', '-g',
+        parser.add_argument('--mode', '-m',
+                            type=str,
+                            default='r',
+                            help="work mode"
+                            )
+
+        parser.add_argument('--file-name', '-n',
                             type=str,
                             default='graph.png',
-                            help="name of graph file"
+                            help="generated file name"
                             )
-
-        parser.add_argument('--ascii', '-as',
-                            type=bool,
-                            default=False,
-                            help="name of graph file"
-                            )
-
 
         parser.add_argument('--max-depth', '-d',
                             type=int,
                             default=5,
                             help="name of graph file"
                             )
-
 
         parser.add_argument('--filter', '-f',
                             type=str,
@@ -53,8 +51,8 @@ class CLI:
 
         params['package_name'] = args.package_name
         params['url'] = args.url
-        params['graph_name'] = args.graph_name
-        params['ascii'] = args.ascii
+        params['mode'] = args.mode
+        params['file_name'] = args.file_name
         params['max_depth'] = args.max_depth
         params['filter'] = args.filter
         return params
@@ -62,10 +60,10 @@ class CLI:
     def print_args(self):
         print(f"package-name:\t{self.params['package_name']}")
         print(f"url:\t\t{self.params['url']}")
-        print(f"graph_name:\t{self.params['graph_name']}")
-        print(f"ascii:\t\t{self.params['ascii']}")
+        print(f"mode:\t\t{self.params['mode']}")
+        print(f"file_name:\t{self.params['file_name']}")
         print(f"max_depth:\t{self.params['max_depth']}")
-        print(f"filter:\t{self.params['filter']}")
+        print(f"filter:\t\t{self.params['filter']}")
 
 
 cli = CLI()
