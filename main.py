@@ -65,5 +65,4 @@ class CLI:
         print(f"max_depth:\t{self.params['max_depth']}")
         print(f"filter:\t\t{self.params['filter']}")
 
-
 cli = CLI()
